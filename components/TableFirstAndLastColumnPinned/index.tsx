@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { View, ScrollView, Text } from "react-native";
 import styles from "./Table.style";
 
@@ -18,26 +18,15 @@ export function TableFirstAndLastColumnPinned({ data }: TableProps) {
   }, [data]);
 
   // Extract column names dynamically from the first row of data
-  const allColumns = useMemo(
-    () => (tableData.length > 0 ? Object.keys(tableData[0]) : []),
-    [tableData]
-  );
+  const allColumns = tableData.length > 0 ? Object.keys(tableData[0]) : [];
 
   // Identify the fixed columns (first and last)
-  const fixedLeftColumn = useMemo(
-    () => (allColumns.length > 0 ? [allColumns[0]] : []),
-    [allColumns]
-  );
-  const fixedRightColumn = useMemo(
-    () => (allColumns.length > 1 ? [allColumns[allColumns.length - 1]] : []),
-    [allColumns]
-  );
+  const fixedLeftColumn = allColumns.length > 0 ? [allColumns[0]] : [];
+  const fixedRightColumn =
+    allColumns.length > 1 ? [allColumns[allColumns.length - 1]] : [];
 
   // Identify the scrollable middle columns
-  const scrollableColumns = useMemo(
-    () => allColumns.slice(1, allColumns.length - 1), // Exclude first and last column
-    [allColumns]
-  );
+  const scrollableColumns = allColumns.slice(1, allColumns.length - 1); // Exclude first and last column
 
   const renderTableHeader = useCallback(
     (columns: string[], style: any) => (
