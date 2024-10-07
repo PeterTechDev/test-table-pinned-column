@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     borderColor: "#D9D9D9",
     paddingHorizontal: 12,
     paddingVertical: 8,
-    width: 88,
+    width: 100,
   },
   // New style for the fixed right column header
   columnHeaderMargin: {
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     fontFamily: "RedHatDisplay-Bold",
   },
   columnRowTxt: {
-    width: 88,
+    width: 100,
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderWidth: 1,
